@@ -3,10 +3,14 @@
 #define ll long long
 using namespace std;
 
-int main() {
-    int n, a, b; cin >> n >> a >> b;
-    string s; cin >> s;
-    for (int i = a; i < n - b; i++) {
+int main()
+{
+    int n, a, b;
+    cin >> n >> a >> b;
+    string s;
+    cin >> s;
+    for (int i = a; i < n - b; i++)
+    {
         cout << s[i];
     }
     cout << endl;

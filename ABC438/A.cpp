@@ -3,9 +3,12 @@
 #define ll long long
 using namespace std;
 
-int main() {
-    int d, f; cin >> d >> f;
-    while (d >= f) {
+int main()
+{
+    int d, f;
+    cin >> d >> f;
+    while (d >= f)
+    {
         f += 7;
     }
     cout << f % d << endl;

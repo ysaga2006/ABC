@@ -3,21 +3,30 @@
 #define ll long long
 using namespace std;
 
-int main() {
-    int n; cin >> n;
+int main()
+{
+    int n;
+    cin >> n;
     vector<int> v;
-    rep(i, n) {
-        int a; cin >> a;
+    rep(i, n)
+    {
+        int a;
+        cin >> a;
         v.push_back(a);
-        if (v.size() >= 4) {
+        if (v.size() >= 4)
+        {
             bool ok = true;
-            rep(j, 3) {
-                if (v.at(v.size() - 2 - j) != a) {
+            rep(j, 3)
+            {
+                if (v.at(v.size() - 2 - j) != a)
+                {
                     ok = false;
                 }
             }
-            if (ok == true) {
-                rep(k, 4) {
+            if (ok == true)
+            {
+                rep(k, 4)
+                {
                     v.pop_back();
                 }
             }
