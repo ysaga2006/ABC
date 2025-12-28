@@ -1,0 +1,12 @@
+{
+    "files.associations": {
+        "ostream": "cpp",
+        "iostream": "cpp",
+        "vector": "cpp"
+    },
+    "cSpell.words": [
+        "ndans",
+        "sumc",
+        "suww"
+    ]
+}
