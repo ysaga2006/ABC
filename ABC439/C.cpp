@@ -6,6 +6,7 @@ using namespace std;
 int main() {
     int n; cin >> n;
     set<int> st;
+    set<int> stt;
     int max = 0;
     rep(i, n) {
         if (i * i > n) {
@@ -15,13 +16,20 @@ int main() {
     }
     max--;
     rep(i, max) rep(j, i) {
-        if (((i + 1) * (i + 1)) + ((j + 1) * (j + 1)) <= n) {
-            st.insert(((i + 1) * (i + 1)) + ((j + 1) * (j + 1)));
+        int num = ((i + 1) * (i + 1)) + ((j + 1) * (j + 1));
+        if (st.count(num) != 0) {
+            stt.insert(num);
+        }
+        if (num <= n) {
+            st.insert(num);
         }
     }
+    for (auto ele : stt) {
+        st.erase(ele);
+    }
     cout << st.size() << endl;
-    for (auto num : st) {
-        cout << num << " ";
+    for (auto ele : st) {
+        cout << ele << " ";
     }
     cout << endl;
     return 0;
