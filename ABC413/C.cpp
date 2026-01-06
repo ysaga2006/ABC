@@ -7,29 +7,28 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     queue<pair<ll, ll>> qu; //{個数、数字}
-    ll q; 
+    ll q;
+    ll now;
     cin >> q;
     for (ll i = 0; i < q; i++) {
-        ll n;
+        ll n; // クエリの種類
         cin >> n;
         if (n == 1) {
-            ll c, x;
+            ll c, x; // 追加する個数と数字
             cin >> c >> x;
             qu.push({c, x});
         } else {
-            ll k;
+            ll k; // 削除する個数
             cin >> k;
             if (qu.front().first >= k) {
                 cout << k * qu.front().second << endl;
                 qu.front().first -= k;
             } else {
-                ll cnt = 0, sum = 0;
+                ll cnt = 0, sum = 0; // 消した数の個数と合計
                 while (cnt < k) {
                     cnt += qu.front().first;
                     if (cnt > k) {
-                        sum -= qu() * (k - qu.front().first);
-                    } else {
-                        sum += qu.front().first * qu.front().second;
+                        sum -= (qu.front().first);
                     }
                     qu.pop();
                 }
