@@ -8,7 +8,6 @@ int main() {
     cin.tie(nullptr);
     queue<pair<ll, ll>> qu; //{個数、数字}
     ll q;
-    ll now;
     cin >> q;
     for (ll i = 0; i < q; i++) {
         ll n; // クエリの種類
@@ -27,11 +26,13 @@ int main() {
                 ll cnt = 0, sum = 0; // 消した数の個数と合計
                 while (cnt < k) {
                     cnt += qu.front().first;
-                    if (cnt > k) {
-                        sum -= (qu.front().first);
+                    if (cnt >= k) {
+                        sum -= (cnt - k) * (qu.front().second);
+                        cnt = k;
                     }
                     qu.pop();
                 }
+                cout << sum << endl;
             }
         }
     }
