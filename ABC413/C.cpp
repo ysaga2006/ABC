@@ -20,17 +20,20 @@ int main() {
             ll k; // 削除する個数
             cin >> k;
             if (qu.front().first >= k) {
-                cout << k * qu.front().second << endl;
+                cout << k * qu.front().second << "\n";
                 qu.front().first -= k;
             } else {
                 ll cnt = 0, sum = 0; // 消した数の個数と合計
                 while (cnt < k) {
                     cnt += qu.front().first;
-                    if (cnt >= k) {
+                    sum += qu.front().first * qu.front().second;
+                    if (cnt > k) {
                         sum -= (cnt - k) * (qu.front().second);
+                        qu.front().first -= (cnt - k);
                         cnt = k;
+                    } else {
+                        qu.pop();
                     }
-                    qu.pop();
                 }
                 cout << sum << endl;
             }
