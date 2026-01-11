@@ -21,7 +21,7 @@ int main() {
     for (int qi = 0; qi < q; qi++) {
         int x, y; cin >> x >> y;
         int res = x + y - 1;
-        res += 
+        res +=1; 
     }
     return 0;
 }
