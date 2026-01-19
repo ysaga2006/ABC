@@ -12,29 +12,24 @@ int main() {
         v.at(i) = a;
     }
     sort(v.begin(), v.end());
+    reverse(v.begin(), v.end());
     ll sum = 0;
-    for (ll i = 0; i < n; ++i) {
+    for (ll i = n - k; i < n; i++) {
         if (sum < x) {
             sum += v.at(i);
-            if (sum >= x) {
-            if (i + (n - k) <= n) {
-                cout << i + 1 + (n - k) << endl;
-                break;
-            } else {
-                cout << -1 << endl;
-                break;
-            }
-        }
         }
         if (sum >= x) {
-            if (i + 1 + (n - k) <= n) {
-                cout << i + 1 + (n - k) << endl;
+            if (i + 1 <= n) {
+                cout << i + 1 << endl;
                 break;
             } else {
-                cout << -1 << endl;
+                cout << "-1" << endl;
                 break;
             }
         }
     }
+    if (sum < x) {
+            cout << -1 << endl;
+        }
     return 0;
 }
