@@ -5,7 +5,7 @@ using namespace std;
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
-    int n; cin >> n;
+    ll n; cin >> n;
     // 2^a * b^2
     // 20なら2^4と2^5の間なので、aは4以下
     // a = 4なら、20 / 16 = 1より、16のみ
@@ -21,6 +21,9 @@ int main() {
     // 16 = 2^4 * 1^2 = 2^2 * 2^2
     // aが偶数の時はどうせ後からカウントされるので、a = 2以外は無視で良い？
     // 2^60 > 10^18。
-    // 2^9 * 3^2 = 2^7 * 6^2 
+    // 2^9 * 3^2 = 2^7 * 6^2
+    ll div2 = sqrt(n / 2) / 1;
+    ll div4 = sqrt(n / 4) / 1;
+    cout << div2 + div4 << endl; 
     return 0;
 }
