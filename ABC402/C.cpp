@@ -14,5 +14,9 @@ int main() {
             v.at(m).emplace_back();
         }
     }
+    for (;n--;) {
+        int b; cin >> b;
+        
+    }
     return 0;
 }
