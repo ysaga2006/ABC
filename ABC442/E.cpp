@@ -1,47 +1,39 @@
 #include <bits/stdc++.h>
 using ll = long long;
 using namespace std;
+// 座標管理
+struct point {
+    int x, y;
+};
+
+// 外積
+ll cross (const point &a, const point &b) {
+    return (ll) a.x * b.y - a.y * b.x;
+}
+
+// まずa, bが半平面のどちらにあるかをそれぞれ上半分[0, 180)が0, 下半分が1で持つ
+// それらが一致しているならcross、一致していないなら半平面の時点で順序がつけられる
+// cmp(a, b)はaがbよりも前にあるなら1, 後ろにあるなら0を返す。
+// つまり、ah = 0, bh = 1なら、1を返し、逆なら0を返す。
+// a×bの外積が正になる時、aの方が偏角が小さい。
+bool cmp (const point &a, const point &b) {
+    int ah = (a.y < 0 or (a.y == 0 and a.x < 0));
+    int bh = (b.y < 0 or (b.y == 0 and b.x < 0));
+    if (ah != bh) {
+        return (ah < bh);
+    } else {
+        return cross(a, b) > 0;
+    }
+}
+
+// 偏角ソート
+void argument_sort(vector<point> &points) {
+    sort(points.begin(), points.end(), cmp);
+}
 
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
-    const double INF = 100100100;
-    ll n, q; cin >> n >> q;
-    vector<double> vup;
-    vector<double> vdo;
-    vector<double> v(n);
-    for (ll i = 0; i < n; i++) {
-        double x, y; cin >> x >> y;
-        if (x > 0 && y >= 0) {
-            v.at(i) = 1;
-        }
-        if (x < 0 && y >= 0) {
-            v.at(i) = 2;
-        }
-        if (x > 0 && y < 0) {
-            v.at(i) = 4;
-        }
-        if (x < 0 && y < 0) {
-            v.at(i) = 3;
-        }
-        if (x == 0) {
-            vup.emplace_back(INF);
-        }
-        else if (x > 0) {
-            vup.emplace_back(y / x);
-        }
-        else if (x < 0) {
-            vdo.emplace_back(y / x);
-        }
-    }
-    sort(vup.begin(), vup.end());
-    sort(vdo.begin(), vdo.end());
-    for (;q--;) {
-        ll a, b; cin >> a >> b;
-        a--; b--;
-        if (v.at(a) == 1 && v.at(b) == 1) {
-            
-        }
-    }
+    int n, q; cin >> n >> q;
     return 0;
 }
