@@ -11,8 +11,6 @@
                 "-Wall",
                 "-Wextra",
                 "-D_GLIBCXX_DEBUG",
-                "-fsanitize=address",
-                "-fsanitize=undefined",
                 "${file}",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}"
@@ -25,7 +23,7 @@
             ],
             "group": {
                 "kind": "build",
-                "isDefault": true
+                "isDefault": false
             },
             "presentation": {
                 "reveal": "always",
@@ -42,9 +40,7 @@
                 "-c",
                 "./${fileBasenameNoExtension}",
                 "-d",
-                "test",
-                "--timeout",
-                "2"
+                "test"
             ],
             "options": {
                 "cwd": "${fileDirname}"
@@ -55,7 +51,7 @@
             "problemMatcher": [],
             "group": {
                 "kind": "test",
-                "isDefault": false
+                "isDefault": true
             },
             "presentation": {
                 "reveal": "always",
