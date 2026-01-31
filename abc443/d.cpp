@@ -18,13 +18,13 @@ int main() {
         for (int i = 0; i < n - 1; i++) {
             sub.at(i) = v.at(i + 1) - v.at(i);
         }
-        ans += abs(sub.at(0)) - 1;
-        for (int i = 1; i < n - 2; i++) {
-            int val = abs(sub.at(i)) - 1;
+        ans += min(v.at(0), abs(sub.at(0)) - 1);
+        for (int i = 0; i < n - 2; i++) {
+            int val = min(v.at(i), abs(sub.at(i)) - 1);
             ans += val;
             sub.at(i + 1) += val;
         }
-        ans += abs(sub.at(n - 2)) - 1;
+        ans += min(v.at(n - 1), abs(sub.at(n - 2)) - 1);
         cout << ans << '\n';
     }
     return 0;
