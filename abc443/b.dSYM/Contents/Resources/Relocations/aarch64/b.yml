@@ -1,9 +1,0 @@
----
-triple:          'arm64-apple-darwin'
-binary-path:     '/Users/sagarayuto/CompetetingProgramming/ABC/abc443/b'
-relocations:
-  - { offset: 0x1603A, size: 0x8, addend: 0x0, symName: __ZStL8__ioinit, symObjAddr: 0x616AA, symBinAddr: 0x100008000, symSize: 0x0 }
-  - { offset: 0x16261, size: 0x8, addend: 0x0, symName: __GLOBAL__sub_I_b.cpp, symObjAddr: 0xF4, symBinAddr: 0x100000744, symSize: 0x14 }
-  - { offset: 0x16278, size: 0x8, addend: 0x0, symName: __Z41__static_initialization_and_destruction_0v, symObjAddr: 0xB8, symBinAddr: 0x100000708, symSize: 0x3C }
-  - { offset: 0x16296, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x100000650, symSize: 0xB8 }
-...
