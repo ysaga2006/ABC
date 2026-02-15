@@ -16,10 +16,10 @@ int main() {
         }
     }
     for (int i = 0; i < n; i++) {
-        cout << "look" << i + 1 << endl;
+        // cout << "look" << i + 1 << endl;
         int val = i;
         while (1 - (cnt.at(v.at(val)) > 0)) {
-            cout << val + 1 << " " << v.at(val) + 1 << endl;
+            // cout << val + 1 << " " << v.at(val) + 1 << endl;
             val = v.at(val);
             v.at(val) = v.at(v.at(val));
         }
