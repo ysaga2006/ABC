@@ -13,7 +13,7 @@
                 "-D_GLIBCXX_DEBUG",
                 "${file}",
                 "-o",
-                "${fileDirname}/${fileBasenameNoExtension}"
+                "${fileDirname}/build/${fileBasenameNoExtension}"
             ],
             "options": {
                 "cwd": "${fileDirname}"
@@ -38,7 +38,7 @@
             "args": [
                 "t",
                 "-c",
-                "./${fileBasenameNoExtension}",
+                "./build/${fileBasenameNoExtension}",
                 "-d",
                 "test"
             ],
@@ -66,9 +66,11 @@
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
+                "-std=c++20",
+                "-D_GLIBCXX_DEBUG",
                 "${file}",
                 "-o",
-                "${fileDirname}/${fileBasenameNoExtension}"
+                "${fileDirname}/build/${fileBasenameNoExtension}"
             ],
             "options": {
                 "cwd": "${fileDirname}"

@@ -1,5 +1,5 @@
-main
-main.dSYM
+build/
+*.dSYM
 test/
 *.out
 .DS_Store
