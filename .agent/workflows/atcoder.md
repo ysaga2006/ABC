@@ -57,7 +57,7 @@ oj d https://atcoder.jp/contests/abc999/tasks/abc999_a
 
 ```bash
 # ビルド
-g++ -g -std=c++20 -Wall -Wextra -D_GLIBCXX_DEBUG main.cpp -o build/main
+g++ -g -std=c++20 -Wall -Wextra -D_GLIBCXX_DEBUG -I/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/ac-library-master main.cpp -o build/main
 
 # テスト（全サンプルケース）
 oj t -c ./build/main -d test
@@ -106,7 +106,7 @@ code abc4xx/abc999/a/main.cpp
 cd abc4xx/abc999/a
 
 # ビルド
-g++ -g -std=c++20 -Wall -Wextra -D_GLIBCXX_DEBUG main.cpp -o build/main
+g++ -g -std=c++20 -Wall -Wextra -D_GLIBCXX_DEBUG -I/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/ac-library-master main.cpp -o build/main
 
 # テスト
 oj t -c ./build/main -d test
@@ -136,7 +136,7 @@ acc new abc999                              # 過去問: フォルダ + テス�
 oj d https://atcoder.jp/contests/abc999/tasks/abc999_a  # テストケース追加取得
 
 # === ビルド & テスト ===
-g++ -g -std=c++20 -Wall -Wextra -D_GLIBCXX_DEBUG main.cpp -o build/main
+g++ -g -std=c++20 -Wall -Wextra -D_GLIBCXX_DEBUG -I/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/ac-library-master main.cpp -o build/main
 oj t -c ./build/main -d test               # サンプルケースでテスト
 
 # === 提出 ===
