@@ -1,1 +1,1 @@
-My AtCoder Beginner Contest Submissions
+My AtCoder Beginner Contest submissions
