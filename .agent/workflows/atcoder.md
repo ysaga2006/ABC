@@ -142,6 +142,12 @@ oj t -c ./build/main -d test               # サンプルケースでテスト
 # === 提出 ===
 cat main.cpp | pbcopy                       # コードをクリップボードにコピー
 
+# === Git コミット ===
+gac "AC: ABC300 A"                          # 全変更を保存＋コミット (gac = git add . && git commit)
+gac                                         # メッセージ入力なしで "update" として高速コミット
+# ※コミットメッセージ例: 
+#   "AC: ..." (正解時), "WA/TLE: ..." (一旦保存), "WIP/save: ..." (方針変更前)
+
 # === デバッグ ===
 ./build/main < test/sample-1.in             # 特定のケースだけ実行
 ./build/main                                # 手動入力で実行（Ctrl+D で入力終了）
