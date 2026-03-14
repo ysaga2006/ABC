@@ -14,13 +14,18 @@ int main() {
         v.at(s[i] - 'a').emplace_back(i);
     }
     for (int i = 0; i < 26; i++) {
-        for (int j = 0; j < int(v.at(i).size()); j++) {
-            for (int k = 0; k < j; k++) {
-                int val = v.at(i).at(j) - v.at(i).at(k);
-                if (l <= val && val <= r) {
-                    count++;
-                }
+        int left = 0, right = 1; // rightが1にならないことも。
+        while (right < int(v.at(i).size())) {
+            cout << left << " " << right << '\n';
+            int dis = v.at(i).at(right) - v.at(i).at(left);
+            if (dis >= l && dis <= r) {
+                count++; right++;
+            } else if (dis < l) {
+                right++;
+            } else if (dis > r) {
+                left++;
             }
+            cout << count << '\n';
         }
     }
     cout << count << endl;
