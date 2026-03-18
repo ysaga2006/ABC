@@ -16,7 +16,7 @@ int main() {
         cin >> v.at(i);
     }
     for (int i = 0; i < n; i++) {
-        if (res * v.at(i) >= upp) {
+        if (v.at(i) >= upp / res) {
             res = 1;
         } else {
             res *= v.at(i);
