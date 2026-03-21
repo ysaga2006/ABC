@@ -11,12 +11,13 @@ int main() {
     for (int i = 0; i < k; i++) {
         upp *= 10;
     }
+    upp -= 1;
     vector<ll> v(n);
     for (int i = 0; i < n; i++) {
         cin >> v.at(i);
     }
     for (int i = 0; i < n; i++) {
-        if (v.at(i) >= upp / res) {
+        if (v.at(i) > upp / res) {
             res = 1;
         } else {
             res *= v.at(i);
