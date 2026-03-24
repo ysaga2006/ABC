@@ -9,13 +9,23 @@
       "id": "abc086_a",
       "label": "A",
       "title": "Product",
-      "url": "https://atcoder.jp/contests/abc086/tasks/abc086_a"
+      "url": "https://atcoder.jp/contests/abc086/tasks/abc086_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
     },
     {
       "id": "abc086_b",
       "label": "B",
       "title": "1 21",
-      "url": "https://atcoder.jp/contests/abc086/tasks/abc086_b"
+      "url": "https://atcoder.jp/contests/abc086/tasks/abc086_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
     },
     {
       "id": "arc089_a",
@@ -32,7 +42,12 @@
       "id": "arc089_b",
       "label": "D",
       "title": "Checker",
-      "url": "https://atcoder.jp/contests/abc086/tasks/arc089_b"
+      "url": "https://atcoder.jp/contests/abc086/tasks/arc089_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
     }
   ]
 }
