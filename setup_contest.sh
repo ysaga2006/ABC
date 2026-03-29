@@ -12,7 +12,7 @@ TEMPLATE="$HOME/Library/Preferences/atcoder-cli-nodejs/cpp/main.cpp"
 
 if [ -z "$CONTEST" ]; then
     echo "使い方: ./setup_contest.sh <contest_id> [problems]"
-    echo "例:     ./setup_contest.sh abc999"
+    echo "例:     ``./setup_contest.sh abc999``"
     echo "        ./setup_contest.sh abc999 \"a b c d\""
     exit 1
 fi
