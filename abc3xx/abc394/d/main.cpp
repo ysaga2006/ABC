@@ -6,10 +6,9 @@ int main() {
     cin.tie(nullptr);
     string s; cin >> s;
     stack<char> st;
-    for (int i = 0; i < int(s.size()); i++) {
-        if (st.empty()) st.push(s[i]);
-        else if ((st.top() == '(' && s[i] == ')') || (st.top() == '[' && s[i] == ']') || (st.top() == '<' && s[i] == '>')) st.pop();
-        else st.push(s[i]);
+    for (char ele : s) {
+        if ((!st.empty()) && ((st.top() == '(' && ele == ')') || (st.top() == '[' && ele == ']') || (st.top() == '<' && ele == '>'))) st.pop();
+        else st.push(ele);
     }
     cout << (st.empty() ? "Yes" : "No") << '\n';
     return 0;
