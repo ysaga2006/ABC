@@ -10,7 +10,7 @@
                 "/opt/homebrew/Cellar/gcc/15.2.0_1/lib/gcc/15/gcc/aarch64-apple-darwin24/15/include",
                 "/opt/homebrew/Cellar/gcc/15.2.0_1/lib/gcc/15/gcc/aarch64-apple-darwin24/15/include-fixed",
                 "/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include",
-                "/Users/sagarayuto/kyopro/AtCoder-cpp-env-main/.include"
+                "/Users/sagarayuto/kyopro/ac-library-master"
             ],
             "defines": [
                 "_GLIBCXX_DEBUG"
