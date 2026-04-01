@@ -3,15 +3,11 @@
     "configurations": [
         {
             "name": "C++: Debug with LLDB",
-            "type": "cppdbg",
+            "type": "lldb",
             "request": "launch",
             "program": "${fileDirname}/build/${fileBasenameNoExtension}",
-            "args": [],
-            "stopAtEntry": false,
             "cwd": "${fileDirname}",
-            "environment": [],
-            "externalConsole": false,
-            "MIMode": "lldb",
+            "stdio": ["${fileDirname}/input.txt", null, null],
             "preLaunchTask": "Build"
         }
     ]

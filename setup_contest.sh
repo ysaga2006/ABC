@@ -38,6 +38,10 @@ for p in $PROBLEMS; do
     else
         echo "  - $DIR/main.cpp (already exists)"
     fi
+    if [ ! -f "$DIR/input.txt" ]; then
+        touch "$DIR/input.txt"
+        echo "  ✓ $DIR/input.txt"
+    fi
 done
 
 echo ""
