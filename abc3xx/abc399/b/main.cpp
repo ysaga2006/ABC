@@ -5,6 +5,46 @@ using ll = long long;
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
-    
+    struct human {
+        ll id;
+        ll score;
+    };
+
+    ll n; cin >> n;
+    vector<human> v(n);
+    for (int i = 0; i < n; ++i) {
+        ll num; cin >> num;
+        v[i].id = i;
+        v[i].score = num;
+    };
+
+    sort(v.begin(), v.end(), [](const human& a, const human& b) {
+        if (a.score == b.score) {
+            return (a.id < b.id);
+        } else {
+            return (a.score > b.score);
+        }
+    });
+
+    vector<ll> ans(n); // 人iの順位をもつ。
+    ll now = 0, pre = 0, cnt = 0, r = 1;
+    for (int i = 0; i < n; ++i) {
+        now = v[i].score;
+        if (now == pre) {
+            cnt++;
+            r--;
+            ans[v[i].id] = r;
+            r++;
+        } else {
+            ans[v[i].id] = r + cnt;
+            r++;
+            r += cnt;
+            cnt = 0;
+        }
+        pre = now;
+    }
+    for (auto ele : ans) {
+        cout << ele << '\n';
+    }
     return 0;
 }
