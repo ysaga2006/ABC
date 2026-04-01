@@ -3,17 +3,22 @@
 # accが使えないときに、accと同じフォルダ構造を手動で作成します
 #
 # 使い方:
-#   ./setup_contest.sh abc999           # a〜gの7問分を作成
-#   ./setup_contest.sh abc999 "a b c d" # a〜dの4問分を作成
+#   ./setup_contest.sh abc999         # a〜gの7問分を作成
+#   ./setup_contest.sh abc999 d e     # d, e問題だけ追加
 
 CONTEST=$1
-PROBLEMS=${2:-"a b c d e f g"}
+shift
+if [ $# -gt 0 ]; then
+    PROBLEMS="$*"
+else
+    PROBLEMS="a b c d e f g"
+fi
 TEMPLATE="$HOME/Library/Preferences/atcoder-cli-nodejs/cpp/main.cpp"
 
 if [ -z "$CONTEST" ]; then
     echo "使い方: ./setup_contest.sh <contest_id> [problems]"
-    echo "例:     ``./setup_contest.sh abc999``"
-    echo "        ./setup_contest.sh abc999 \"a b c d\""
+    echo "例:     ./setup_contest.sh abc999"
+    echo "        ./setup_contest.sh abc999 d e"
     exit 1
 fi
 
