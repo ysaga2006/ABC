@@ -48,3 +48,40 @@ int main() {
     }
     return 0;
 }
+
+/*
+#include <bits/stdc++.h>
+using namespace std;
+using ll = long long;
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    struct Human {
+        ll score;
+        int id;
+    };
+
+    int n; cin >> n;
+    vector<Human> v(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> v[i].score;
+        v[i].id = i;
+    }
+
+    sort(v.begin(), v.end(), [](const auto& a, const auto& b) {
+        return a.score != b.score ? a.score > b.score : a.id < b.id;
+    });
+
+    vector<ll> ans(n);  // ans[i] = 人iの順位
+    for (int i = 0; i < n; ++i) {
+        ans[v[i].id] = (i > 0 && v[i].score == v[i - 1].score)
+                           ? ans[v[i - 1].id]
+                           : i + 1;
+    }
+
+    for (ll r : ans) cout << r << '\n';
+    return 0;
+}
+*/
