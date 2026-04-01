@@ -13,28 +13,45 @@ description: AtCoderの問題を解くためのワークフロー（テスト・
 ### 1. セットアップ（コンテスト開始前）
 
 ```bash
-cd /Users/sagarayuto/CompetetingProgramming/ABC
+cd /Users/sagarayuto/kyopro/ABC
 ./setup_contest.sh abc999           # a〜gの7問分を作成
-./setup_contest.sh abc999 "a b c d" # 問題数を指定する場合
+./setup_contest.sh abc999 d e       # 途中から問題を追加する場合（クォート不要）
+```
+
+フォルダ構造：
+
+```
+abc4xx/abc999/
+  a/
+    main.cpp   ← コードを書く
+    input.txt  ← デバッグ用サンプル入力をここに貼る
+    build/     ← コンパイル済みバイナリ（gitignore）
+    test/      ← oj でサンプルを取得した場合
 ```
 
 ### 2. コーディング
 
 ```bash
-# エディタでファイルを開く
 code abc4xx/abc999/a/main.cpp
 ```
 
 ### 3. テストケースの準備
 
-コンテスト中は `oj d` でテストケースを取得できない場合があります。
-その場合は手動でテストケースを作成します：
+**方法A: oj で自動取得（コンテスト開始後 しばらくしてから）**
+
+```bash
+cd abc4xx/abc999/a
+oj d https://atcoder.jp/contests/abc999/tasks/abc999_a
+```
+
+`test/sample-1.in` / `test/sample-1.out` などが生成されます。
+
+**方法B: 手動で作成**
 
 ```bash
 cd abc4xx/abc999/a
 mkdir -p test
 
-# サンプル1を作成
 cat > test/sample-1.in << 'EOF'
 3
 1 2 3
@@ -43,21 +60,23 @@ EOF
 cat > test/sample-1.out << 'EOF'
 6
 EOF
-
-# サンプル2以降も同様に sample-2.in / sample-2.out ...
-```
-
-あるいは、コンテスト開始後すぐに `oj d` が使えるようになることもあります：
-
-```bash
-oj d https://atcoder.jp/contests/abc999/tasks/abc999_a
 ```
 
 ### 4. ビルド & テスト
 
+VSCode のショートカット（推奨）：
+- `Cmd+Shift+B` → ビルド（`Build` タスク）
+- `Cmd+Shift+P` → `Tasks: Run Task` → `Test` でテスト
+
+CLI でやる場合：
+
 ```bash
+cd abc4xx/abc999/a
+
 # ビルド
-g++ -g -std=c++20 -Wall -Wextra -D_GLIBCXX_DEBUG -I/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/ac-library-master main.cpp -o build/main
+g++ -g -std=c++20 -Wall -Wextra -D_GLIBCXX_DEBUG \
+  -I/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/ac-library-master \
+  main.cpp -o build/main
 
 # テスト（全サンプルケース）
 oj t -c ./build/main -d test
@@ -66,11 +85,10 @@ oj t -c ./build/main -d test
 ### 5. 提出
 
 ```bash
-# クリップボードにコピー → ブラウザで貼り付け
 cat main.cpp | pbcopy
 ```
 
-ブラウザで問題ページの「提出」を開き、`Cmd + V` で貼り付け → 言語を `C++23 (GCC 15)` に → 提出。
+ブラウザで問題ページの「提出」を開き、`Cmd+V` で貼り付け → 言語を `C++23 (GCC 15)` に → 提出。
 
 > ⚠ `acc s` は現在セキュリティ強化により使用不可。
 
@@ -88,42 +106,15 @@ cd ../b
 ### 1. セットアップ（テストケース自動取得）
 
 ```bash
-cd /Users/sagarayuto/CompetetingProgramming/ABC
+cd /Users/sagarayuto/kyopro/ABC
 acc new abc999
 ```
 
-`abc999/a/main.cpp` と `abc999/a/test/` が自動生成されます。
+`abc4xx/abc999/a/main.cpp` と `abc4xx/abc999/a/test/` が自動生成されます。
 
-### 2. コーディング
+### 2. 以降はコンテスト時と同じ
 
-```bash
-code abc4xx/abc999/a/main.cpp
-```
-
-### 3. ビルド & テスト
-
-```bash
-cd abc4xx/abc999/a
-
-# ビルド
-g++ -g -std=c++20 -Wall -Wextra -D_GLIBCXX_DEBUG -I/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/ac-library-master main.cpp -o build/main
-
-# テスト
-oj t -c ./build/main -d test
-```
-
-### 4. 提出
-
-```bash
-cat main.cpp | pbcopy
-# ブラウザで貼り付けて提出
-```
-
-### 5. 次の問題へ
-
-```bash
-cd ../b
-```
+手順 2〜5 を繰り返す。
 
 ---
 
@@ -131,26 +122,27 @@ cd ../b
 
 ```bash
 # === セットアップ ===
-acc new abc999                              # 過去問: フォルダ + テストケース取得
-./setup_contest.sh abc999                   # ライブ: フォルダのみ作成
+acc new abc999                               # 過去問: フォルダ + テストケース取得
+./setup_contest.sh abc999                    # ライブ: a〜g を全作成
+./setup_contest.sh abc999 d e               # ライブ: d, e だけ追加
 oj d https://atcoder.jp/contests/abc999/tasks/abc999_a  # テストケース追加取得
 
 # === ビルド & テスト ===
-g++ -g -std=c++20 -Wall -Wextra -D_GLIBCXX_DEBUG -I/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/ac-library-master main.cpp -o build/main
-oj t -c ./build/main -d test               # サンプルケースでテスト
+g++ -g -std=c++20 -Wall -Wextra -D_GLIBCXX_DEBUG \
+  -I/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/ac-library-master \
+  main.cpp -o build/main
+oj t -c ./build/main -d test                # サンプルケースでテスト
 
 # === 提出 ===
-cat main.cpp | pbcopy                       # コードをクリップボードにコピー
+cat main.cpp | pbcopy                        # コードをクリップボードにコピー
 
 # === Git コミット ===
-gac "AC: ABC300 A"                          # 全変更を保存＋コミット (gac = git add . && git commit)
-gac                                         # メッセージ入力なしで "update" として高速コミット
-# ※コミットメッセージ例: 
-#   "AC: ..." (正解時), "WA/TLE: ..." (一旦保存), "WIP/save: ..." (方針変更前)
+gac "AC: ABC300 A"                           # 全変更を保存＋コミット
+# コミットメッセージ例: "AC: ...", "WA/TLE: ...", "WIP/save: ..."
 
-# === デバッグ ===
-./build/main < test/sample-1.in             # 特定のケースだけ実行
-./build/main                                # 手動入力で実行（Ctrl+D で入力終了）
+# === デバッグ（CLI） ===
+./build/main < input.txt                     # input.txt を入力として実行
+./build/main                                 # 手動入力で実行（Ctrl+D で入力終了）
 
 # === ログイン確認 ===
 oj login --check https://atcoder.jp/
@@ -160,56 +152,66 @@ oj login --check https://atcoder.jp/
 
 ## 🐛 D. デバッグ
 
-### CLI でのデバッグ（lldb）
+### VS Code デバッガ（推奨）
 
-```bash
-# ビルド（-g フラグは上記コマンドに含まれている）
-lldb ./build/main
+**使い方：**
 
-# lldb 内の操作:
-(lldb) breakpoint set --file main.cpp --line 15   # 15行目にブレークポイント
-(lldb) b main.cpp:15                               # 短縮形
-(lldb) run < test/sample-1.in                      # テストケースを入力として実行
-(lldb) n                                           # 次の行へ（ステップオーバー）
-(lldb) s                                           # 関数の中に入る（ステップイン）
-(lldb) c                                           # 次のブレークポイントまで続行
-(lldb) p i                                         # 変数 i の値を表示
-(lldb) p v                                         # ベクター v の内容を表示
-(lldb) p v.size()                                  # ベクターのサイズを表示
-(lldb) bt                                          # スタックトレース表示（エラー行の特定に便利）
-(lldb) q                                           # 終了
-```
+1. `input.txt` にサンプル入力を貼る（`main.cpp` と同じフォルダ）
+2. `main.cpp` を開いた状態でブレークポイントを設定（行番号の左をクリック）
+3. `F5` でデバッグ開始
+4. 「デバッグ コンソール」タブに出力が表示される
 
-### VS Code デバッガ（GUI）
+**ポイント：**
+- ブレークポイントは**その行を実行する直前**で止まる
+  - 例: `cin >> n;` の行で止まった場合、まだ `n` は読まれていない
+  - `F10`（ステップオーバー）で1行進めると `n` に値が入る
+  - または次の行にブレークポイントを置く
+- 変数の値は左の「変数」パネルに自動表示される
 
-GUIのほうが見やすい場合は `F5` でデバッグ開始。操作キー：
+**操作キー：**
 
 | キー | 操作 |
 |------|------|
-| `F5` | 続行 |
-| `F10` | ステップオーバー |
-| `F11` | ステップイン |
+| `F5` | 開始 / 次のブレークポイントまで続行 |
+| `F10` | ステップオーバー（1行進む） |
+| `F11` | ステップイン（関数の中に入る） |
+| `Shift+F11` | ステップアウト |
 | `Shift+F5` | 停止 |
+
+**仕組み：**
+- デバッガ: CodeLLDB（VSCode拡張）
+- stdin: `${fileDirname}/input.txt` から自動読み込み
+- stdout: 「デバッグ コンソール」タブに出力
+
+### CLI でのデバッグ（lldb）
+
+```bash
+lldb ./build/main
+
+(lldb) breakpoint set --file main.cpp --line 15   # ブレークポイント設定
+(lldb) b main.cpp:15                               # 短縮形
+(lldb) run < input.txt                             # input.txt を入力として実行
+(lldb) n                                           # ステップオーバー
+(lldb) s                                           # ステップイン
+(lldb) c                                           # 次のブレークポイントまで続行
+(lldb) p i                                         # 変数 i の値を表示
+(lldb) p v                                         # ベクター v の内容を表示
+(lldb) bt                                          # スタックトレース（エラー行の特定）
+(lldb) q                                           # 終了
+```
 
 ### vectorの範囲外アクセス
 
-`-D_GLIBCXX_DEBUG` が有効なので、`v[i]` でも `v.at(i)` でも範囲外アクセスは検出されます。
-
-**行番号を特定するには：**
+`-D_GLIBCXX_DEBUG` が有効なので、`v[i]` でも範囲外アクセスは検出されます。
 
 ```bash
-# 方法1: lldb で実行してクラッシュ箇所を特定
+# F5 でデバッグ実行 → クラッシュ行で自動停止
+# または CLI:
 lldb ./build/main
-(lldb) run < test/sample-1.in
+(lldb) run < input.txt
 # クラッシュしたら:
 (lldb) bt    # スタックトレースに行番号が表示される
 ```
-
-```bash
-# 方法2: F5 でデバッグ実行 → クラッシュ行で自動停止
-```
-
-`.at()` を使うと `std::out_of_range` 例外として検出され、より明確なメッセージが出ます。
 
 ---
 
@@ -220,6 +222,7 @@ lldb ./build/main
 | コンパイラ | GCC 15 (`/usr/local/bin/g++`) |
 | C++バージョン | C++20 |
 | デバッグフラグ | `-D_GLIBCXX_DEBUG` |
+| デバッガ | CodeLLDB（VSCode拡張） |
 | テストツール | `oj` (online-judge-tools) |
 | コンテストツール | `acc` (atcoder-cli) |
 | テンプレート | `~/Library/Preferences/atcoder-cli-nodejs/cpp/main.cpp` |
@@ -238,6 +241,6 @@ oj d https://atcoder.jp/contests/abc999/tasks/abc999_a
 # build/ フォルダがないと言われたら
 mkdir -p build
 
-# フォーマッタを手動で適用したいとき（VS Code上で）
+# フォーマッタを手動で適用（VS Code上で）
 # Shift + Option + F
 ```
