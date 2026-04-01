@@ -75,7 +75,7 @@ cd abc4xx/abc999/a
 
 # ビルド
 g++ -g -std=c++20 -Wall -Wextra -D_GLIBCXX_DEBUG \
-  -I/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/ac-library-master \
+  -I/opt/homebrew/Cellar/gcc/15.2.0_1/include/c++/15/ac-library-master \
   main.cpp -o build/main
 
 # テスト（全サンプルケース）
@@ -129,7 +129,7 @@ oj d https://atcoder.jp/contests/abc999/tasks/abc999_a  # テストケース追�
 
 # === ビルド & テスト ===
 g++ -g -std=c++20 -Wall -Wextra -D_GLIBCXX_DEBUG \
-  -I/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/ac-library-master \
+  -I/opt/homebrew/Cellar/gcc/15.2.0_1/include/c++/15/ac-library-master \
   main.cpp -o build/main
 oj t -c ./build/main -d test                # サンプルケースでテスト
 
