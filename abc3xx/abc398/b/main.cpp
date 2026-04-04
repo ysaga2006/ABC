@@ -23,7 +23,7 @@ int main() {
     } else if (v[i] >= 2) {
       duo = true;
     }
-  }`
+  }
   cout << (duo && trio ? "Yes" : "No") << '\n';
   return 0;
 }
