@@ -14,9 +14,11 @@
         "**/*.dSYM": true,
         "**/.DS_Store": true
     },
-    "editor.formatOnSave": false,
+    "editor.formatOnSave": true,
     "[cpp]": {
-        "editor.formatOnSave": false,
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "ms-vscode.cpptools",
+        "editor.tabSize": 2,
         "editor.formatOnType": false,
         "editor.formatOnPaste": false
     },
