@@ -12,7 +12,7 @@ if [ $# -gt 0 ]; then
     PROBLEMS="$*"
 else
     PROBLEMS="a b c d e f g"
-fi``
+fi
 TEMPLATE="$HOME/Library/Preferences/atcoder-cli-nodejs/cpp/main.cpp"
 
 if [ -z "$CONTEST" ]; then
