@@ -50,5 +50,5 @@ for p in $PROBLEMS; do
 done
 
 echo ""
-echo "✅ $CONTEST のセットアップ完了！"
-echo "📂 場所: $HUNDREDS/$CONTEST/"
+echo " $CONTEST のセットアップ完了！"
+echo " 場所: $HUNDREDS/$CONTEST/"

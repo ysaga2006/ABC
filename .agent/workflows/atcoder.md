@@ -2,26 +2,24 @@
 description: AtCoderの問題を解くためのワークフロー（テスト・提出・デバッグ）
 ---
 
-# AtCoder ワークフロー
-
-> CLI操作を中心としたワークフロー。ターミナルから全操作を完結できます。
+# AtCoder ワークフローメモ
 
 ---
 
-## 🏁 A. リアルタイムコンテスト参加時
+## A. リアルタイムコンテスト参加時
 
 ### 1. セットアップ（コンテスト開始前）
 
 ```bash
-cd /Users/sagarayuto/kyopro/ABC
+cd /Users/sagarayuto/kyopro/abc
 ./setup_contest.sh abc999           # a〜gの7問分を作成
-./setup_contest.sh abc999 d e       # 途中から問題を追加する場合（クォート不要）
+./setup_contest.sh abc999 d e       # 途中から問題を追加する場合
 ```
 
 フォルダ構造：
 
 ```
-abc4xx/abc999/
+abc9xx/abc999/
   a/
     main.cpp   ← コードを書く
     input.txt  ← デバッグ用サンプル入力をここに貼る
@@ -37,7 +35,7 @@ code abc4xx/abc999/a/main.cpp
 
 ### 3. テストケースの準備
 
-**方法A: oj で自動取得（コンテスト開始後 しばらくしてから）**
+**方法A: oj で自動取得（コンテストからしばらくしてから？）**
 
 ```bash
 cd abc4xx/abc999/a
@@ -64,7 +62,7 @@ EOF
 
 ### 4. ビルド & テスト
 
-VSCode のショートカット（推奨）：
+VSCode のショートカット：
 - `Cmd+Shift+B` → ビルド（`Build` タスク）
 - `Cmd+Shift+P` → `Tasks: Run Task` → `Test` でテスト
 
@@ -90,7 +88,7 @@ cat main.cpp | pbcopy
 
 ブラウザで問題ページの「提出」を開き、`Cmd+V` で貼り付け → 言語を `C++23 (GCC 15)` に → 提出。
 
-> ⚠ `acc s` は現在セキュリティ強化により使用不可。
+>  `acc s` は現在セキュリティ強化により使用できない？
 
 ### 6. 次の問題へ
 
@@ -101,7 +99,7 @@ cd ../b
 
 ---
 
-## 📚 B. 過去問精進時
+## B. 過去問精進時
 
 ### 1. セットアップ（テストケース自動取得）
 
@@ -110,7 +108,7 @@ cd /Users/sagarayuto/kyopro/ABC
 acc new abc999
 ```
 
-`abc4xx/abc999/a/main.cpp` と `abc4xx/abc999/a/test/` が自動生成されます。
+`abc4xx/abc999/a/main.cpp` と `abc4xx/abc999/a/test/` が自動生成される。
 
 ### 2. 以降はコンテスト時と同じ
 
@@ -118,7 +116,7 @@ acc new abc999
 
 ---
 
-## ⚡ C. よく使うコマンド一覧
+## C. よく使うコマンドたち
 
 ```bash
 # === セットアップ ===
@@ -150,9 +148,9 @@ oj login --check https://atcoder.jp/
 
 ---
 
-## 🐛 D. デバッグ
+## D. デバッグ
 
-### VS Code デバッガ（推奨）
+### VS Code デバッガ
 
 **使い方：**
 
@@ -215,7 +213,7 @@ lldb ./build/main
 
 ---
 
-## 🔧 E. 環境情報
+## E. 環境情報
 
 | 項目 | 設定 |
 |------|------|
@@ -229,7 +227,7 @@ lldb ./build/main
 
 ---
 
-## 🛠️ F. トラブルシューティング
+## F. トラブルシューティング
 
 ```bash
 # oj のログイン状態確認
