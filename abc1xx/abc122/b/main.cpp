@@ -15,7 +15,7 @@ int main() {
     bool ok;
     ll cnt = 0;
     for (char moji : x) {
-      if (string("ATGC").find(moji)) cnt++;
+      if (string("ATGC").contains(moji)) cnt++;
     }
     
     if (cnt == ll(x.size())) ok = true;
@@ -24,10 +24,10 @@ int main() {
     return ok;
   };
 
-  for (ll len = n; len >= 1; --len) {
+  for (ll len = n; len >= 0; --len) {
     for (ll i = 0; i < n - len + 1; ++i) {
       if (f(s.substr(i, len)) == true) {
-        cout << s.substr(i, len) << '\n';
+        cout << len << '\n';
         return 0;
       }
     }
