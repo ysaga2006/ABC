@@ -32,11 +32,12 @@ g++ -g -std=c++23 -Wall -Wextra -D_GLIBCXX_DEBUG main.cpp -o build/main && ./bui
 
 ## Contest Setup
 
-`acc` が使えない場合は `setup_contest.sh` で手動セットアップ:
+`acc` が使えない場合は `setup` で手動セットアップ:
 
 ```bash
-./setup_contest.sh abc999          # a〜g の7問分を作成
-./setup_contest.sh abc999 d e      # 特定の問題だけ追加
+./setup abc999          # a〜g の7問分を作成
+./setup arc999          # a〜f の6問分を作成
+./setup abc999 d e      # 特定の問題だけ追加
 ```
 
 テンプレートは `~/Library/Preferences/atcoder-cli-nodejs/cpp/main.cpp` から取得する。
