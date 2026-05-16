@@ -21,3 +21,20 @@ ll gyakugen(ll a, ll mod){return powmod(a, mod-2, mod);}
 ll kaizyo(ll n, ll mod){ll res=1; for(ll i=1;i<=n;i++) res=res*i%mod; return res;}
 template<class Tx,class Ty>Tx dup(Tx x, Ty y){return (x+y-1)/y;}
 // clang-format on
+
+// 最大値の最小値系
+int main() {
+  auto ok = [&](ll x) -> bool {
+  };
+
+  ll l = -1, r = INF;
+  while (r - l > 1) {
+    ll m = l + (r - l) / 2;
+    if (ok(m) == true)
+      r = m;
+    else
+      l = m;
+  }
+
+  cout << r << '\n';
+}
