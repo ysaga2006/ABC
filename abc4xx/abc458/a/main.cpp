@@ -6,13 +6,8 @@ int main() {
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
 
-  string s; cin >> s;
-  ll n; cin >> n;
+  string s; ll n; cin >> s >> n;
 
-  for (ll i = n; i <= ll(s.size()) - n - 1; ++i) {
-    cout << s[i];
-  }
-
-  cout << '\n';
+  cout << s.substr(n, ll (s.size()) - 2 * n) << '\n';
   return 0;
 }
